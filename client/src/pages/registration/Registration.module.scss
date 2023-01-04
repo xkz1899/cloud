@@ -1,0 +1,60 @@
+.main {
+	min-width: 100%;
+	min-height: calc(100vh - 60px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sub {
+	min-width: 60%;
+	max-width: 60%;
+	background: #fff;
+	height: 60%;
+	padding: 50px 10%;
+	display: flex;
+	flex-direction: column;
+	border-radius: 27px;
+	@media (max-width: 350px) {
+		max-width: 90%;
+	}
+}
+
+.auth {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	row-gap: 10px;
+	width: 100%;
+	input {
+		width: 100%;
+	}
+	button {
+		align-self: end;
+	}
+}
+
+.title {
+	color: #000;
+	position: relative;
+	left: -15px;
+}
+
+.btn {
+	padding: 5px 15px;
+	cursor: pointer;
+	background: transparent;
+	border: 1px solid #000;
+	border-radius: 7px;
+	position: relative;
+	left: 15px;
+	&:hover {
+		background: #000;
+		color: #fff;
+	}
+	&:active {
+		background: transparent;
+		color: #000;
+	}
+}
