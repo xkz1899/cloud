@@ -1,0 +1,22 @@
+.btn {
+	color: #fff;
+	background: transparent;
+	border: 1px solid #ffffff96;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	font-weight: 500;
+	font-size: 1.05rem;
+	transition: 0.5s;
+	&:hover {
+		border-color: #fff;
+		transform: scale(1.05);
+	}
+	&:focus {
+		border-color: #fff;
+		transform: scale(1.05);
+	}
+	&:active {
+		transform: scale(1);
+		border-color: #ffffff96;
+	}
+}

@@ -1,0 +1,51 @@
+.main {
+	background: rgb(255, 255, 255);
+	color: #000;
+	border-radius: 0.5em;
+	padding: 3%;
+}
+
+.name {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5em;
+}
+
+.bar {
+	height: 1.3em;
+	background: rgb(85, 85, 85);
+	width: 100%;
+	border-radius: 0.5em;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.percent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 1.3em;
+	width: 0%;
+	background: #000;
+	transition: 0.3s;
+	border-radius: 0.5em;
+}
+
+.percent__number {
+	z-index: 100;
+	position: absolute;
+	color: #fff;
+}
+
+.close {
+	background: transparent;
+	&:hover {
+		color: rgb(150, 150, 150);
+	}
+	&:active {
+		color: #000;
+	}
+}

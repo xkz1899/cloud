@@ -1,48 +1,40 @@
-import React, { useState } from "react"
-import st from "./Registration.module.scss"
-import Container from "./../../components/UI/container/Container"
-import { useAppDispatch } from "./../../hooks/redux"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Input from "../../components/UI/inputAuth/InputAuth"
+import InputEmail from "../../components/UI/inputAuth/InputEmail"
+import { setError } from "../../store/reducers/authSlice"
 import { registration } from "./../../actions/authAction"
+import ButtonAuth from "./../../components/UI/buttonAuth/ButtonAuth"
+import Container from "./../../components/UI/container/Container"
+import InputPassword from "./../../components/UI/inputPassword/InputPassword"
+import { useAppDispatch, useAppSelector } from "./../../hooks/redux"
+import st from "./Registration.module.scss"
 
 const Registration = () => {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+
+	const { error } = useAppSelector(state => state.authSlice)
 	const dispatch = useAppDispatch()
 	const nav = useNavigate()
 
 	const registrationClickHandler = () => {
 		dispatch(registration(email, password))
-		nav("/")
+		email.length > 5 && password.length > 5 && nav("/")
 	}
+
+	useEffect(() => {
+		dispatch(setError(null))
+	}, [])
 
 	return (
 		<Container>
-			<div className={st.main}>
-				<div className={st.sub}>
-					<h1 className={st.title}>Регистрация</h1>
-					<div className={st.auth}>
-						<Input
-							type="email"
-							placeholder="Введите e-mail..."
-							value={email}
-							onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-								setEmail(e.target.value)
-							}
-						/>
-						<Input
-							type="password"
-							placeholder="Введите пароль..."
-							value={password}
-							onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-								setPassword(e.target.value)
-							}
-						/>
-						<button onClick={registrationClickHandler} className={st.btn}>
-							Зарегистрироваться
-						</button>
-					</div>
+			<div className={st.wrap}>
+				<h3 className={st.title}>Регистрация</h3>
+				{error && <p className={st.error}>{error}</p>}
+				<div className={st.form}>
+					<InputEmail value={email} setValue={setEmail} />
+					<InputPassword value={password} setValue={setPassword} />
+					<ButtonAuth click={registrationClickHandler} text="Войти" />
 				</div>
 			</div>
 		</Container>

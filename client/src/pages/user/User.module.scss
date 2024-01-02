@@ -1,0 +1,51 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.avatar {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	margin-top: 0.5em;
+	object-fit: cover;
+}
+
+.upload__input {
+	display: none;
+}
+
+.edit {
+	display: flex;
+	margin-top: 0.5em;
+	column-gap: 0.5em;
+}
+
+.avatar__delete {
+	background: transparent;
+	color: #fff;
+	&:hover {
+		color: rgb(184, 184, 184);
+		cursor: pointer;
+	}
+	&:active {
+		color: #fff;
+	}
+}
+
+.upload__label {
+	color: #fff;
+	&:hover {
+		color: rgb(184, 184, 184);
+		cursor: pointer;
+	}
+	&:active {
+		color: #fff;
+	}
+}
+
+.email {
+	font-size: 1.2em;
+	margin-bottom: 0.5em;
+}

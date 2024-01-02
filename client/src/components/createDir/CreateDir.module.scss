@@ -1,0 +1,42 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	row-gap: 3px;
+}
+
+.input {
+	padding: 5px 15px;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid #fff;
+	&::placeholder {
+		color: #000;
+	}
+	&:focus {
+		transform: scale(1.03);
+	}
+}
+
+.btn {
+	padding: 5px 15px;
+	background: transparent;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 7px;
+	align-self: end;
+	cursor: pointer;
+	&:focus {
+		background: rgba(255, 255, 255, 0.897);
+		color: #000;
+		font-weight: 700;
+	}
+	&:hover {
+		background: rgba(255, 255, 255, 0.897);
+		color: #000;
+		font-weight: 700;
+	}
+}
+
+.err {
+	color: #f00;
+}

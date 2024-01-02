@@ -1,5 +1,4 @@
 .background {
-	background: #fff;
 }
 
 .logo {
@@ -8,14 +7,16 @@
 	background: transparent;
 	border: none;
 	column-gap: 5px;
-	color: #000;
+	// color: #000;
+	color: #fff;
 	text-decoration: none;
 	cursor: pointer;
 	&:hover {
-		color: rgb(70, 70, 70);
+		color: rgba(255, 255, 255, 0.788);
 	}
 	&:active {
-		color: #000;
+		// color: #000;
+		color: #fff;
 	}
 }
 
@@ -35,11 +36,15 @@
 		cursor: pointer;
 		&:hover {
 			color: #666;
-			border-bottom: 1px solid #000;
+			border-bottom: 1px solid #fff;
+		}
+		&:active {
+			color: #fff;
+			border: none;
 		}
 	}
 	a {
-		color: #000;
+		color: #fff;
 		text-decoration: none;
 		background: transparent;
 		border: none;
@@ -47,7 +52,38 @@
 		cursor: pointer;
 		&:hover {
 			color: #666;
-			border-bottom: 1px solid #000;
+			border-bottom: 1px solid #fff;
 		}
+		&:active {
+			color: #fff;
+			border: none;
+		}
+	}
+}
+
+.user {
+	display: flex;
+	align-items: center;
+}
+
+.avatar {
+	margin: 0 0.5em 0 0.3em;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.title {
+	font-weight: 800;
+}
+
+.leave {
+	color: #fff;
+	&:hover {
+		color: rgba(255, 255, 255, 0.7);
+	}
+	&:active {
+		color: #fff;
 	}
 }

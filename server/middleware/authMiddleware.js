@@ -1,17 +1,17 @@
-const tokenService = require("../service/tokenService")
 const ApiError = require("./ApiError")
+const tokenService = require("../service/tokenService")
 
 module.exports = function (req, res, next) {
 	try {
-		const headerAuthorization = req.headers.authorization
-
-		if (!headerAuthorization) {
+		const authorizationHeader = req.headers.authorization
+		if (!authorizationHeader) {
 			return next(ApiError.UnauthorizedError())
 		}
-		const accessToken = headerAuthorization.slice(" ")[1]
+		const accessToken = authorizationHeader.split(" ")[1]
 		if (!accessToken) {
 			return next(ApiError.UnauthorizedError())
 		}
+		
 		const userData = tokenService.verifyAccessToken(accessToken)
 		if (!userData) {
 			return next(ApiError.UnauthorizedError())

@@ -1,17 +1,15 @@
-import React from "react"
-import Container from "../UI/container/Container"
-import st from "./Navigation.module.scss"
-import { BsFillCloudArrowDownFill } from "react-icons/bs"
 import { BiUserCircle } from "react-icons/bi"
+import { BsFillCloudArrowDownFill } from "react-icons/bs"
+import { Link } from "react-router-dom"
 import { useAppSelector } from "../../hooks/redux"
-import { useAppDispatch } from "./../../hooks/redux"
+import Container from "../UI/container/Container"
 import { logout } from "./../../actions/authAction"
-import { useNavigate, Link } from "react-router-dom"
+import { useAppDispatch } from "./../../hooks/redux"
+import st from "./Navigation.module.scss"
 
 const Navigation = () => {
 	const { isAuth, currentUser } = useAppSelector(store => store.authSlice)
 	const dispatch = useAppDispatch()
-	const nav = useNavigate()
 
 	return (
 		<div className={st.background}>
@@ -19,18 +17,24 @@ const Navigation = () => {
 				<div className={st.main}>
 					<Link to="/" className={st.logo}>
 						<BsFillCloudArrowDownFill size="40" />
-						<h3>Cloud</h3>
+						<h3 className={st.title}>Cloud</h3>
 					</Link>
 					<div className={st.auth}>
 						{isAuth ? (
-							<div>
-								<button>{currentUser.email}</button>
+							<div className={st.user}>
+								<Link to="/user">{currentUser.email}</Link>
 								{currentUser.avatar ? (
-									<img src={currentUser.avatar} alt="Photo" />
+									<img
+										className={st.avatar}
+										src={`http://localhost:5000/${currentUser.avatar}`}
+										alt=""
+									/>
 								) : (
-									<BiUserCircle />
+									<BiUserCircle className={st.avatar} size="28" color="#FFF" />
 								)}
-								<button onClick={e => dispatch(logout())}>Выйти</button>
+								<button className={st.leave} onClick={e => dispatch(logout())}>
+									Выйти
+								</button>
 							</div>
 						) : (
 							<>
